@@ -1,0 +1,1 @@
+COD_TPC.init_fingerprint();
