@@ -59,9 +59,9 @@ const STORE = [
                     'Middle lane',
                     'Central spot',
                     'Botanical garden',
-                ],
+            
                  answer: 'Neutral ground'
-             },
+             };
 
     //Question 6
     {
