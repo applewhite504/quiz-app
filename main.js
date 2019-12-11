@@ -60,7 +60,7 @@ const STORE = [
                     'Central spot',
                     'Botanical garden',
                 ],
-                 answer: Neutral ground
+                 answer: 'Neutral ground'
              },
 
     //Question 6
@@ -71,7 +71,7 @@ const STORE = [
                    'Gumbo Bridge',
                   'Lake Pontchartrain Causeway'
                ],
-              answer: "Lake Pontchartrain Causeway"
+              answer: 'Lake Pontchartrain Causeway'
               },
 
     //Question 7
@@ -103,7 +103,7 @@ const STORE = [
                      'The Big Easy',
                      'Easy Rider',
                      'Gone With The Wind',
-                     'A Streetcar Named Desire"'
+                     'A Streetcar Named Desire',
                ],
                  answer: 'Gone With The Wind'
             },
@@ -111,12 +111,12 @@ const STORE = [
     //Question 10
 {        
         question: "New Orleans is completely surrounded by water, with a base below sea level, so the Army Corps of Engineers built what to protect the city against flooding?"
-                      'Piers",
-                      Beaches',
+                      'Piers',
+                      'Beaches',
                      'Levees',
                      'Dams',
               ],
-              answer: "Levees"
+              answer: 'Levees'
              }
                 
             ];
@@ -132,14 +132,17 @@ const STORE = [
 
 //starting page with title, explanation, and start button
 function startQuiz() {
-    console.log('`startQuiz` ran');
+    $('.start').on('click', function(event){
+        generateQuestion();
+    }
+    );
 }
 
 //shows question with possible answers and submit button
 function generateQuestion() {
     console.log('`generateQuestion` ran');
 }
-}
+
 
 //when user submits their answer, this page gives them their results
 function displayResults() {
@@ -179,9 +182,13 @@ function resetStats() {
 function handleQuizApp() {
     startQuiz();
     generateQuestion();
-    submitAnswer();
+    displayResults();
+    updateScore();
+    updateQuestionNumber();
     nextQuestion();
+    finalScore();
     restartQuiz();
+    resetStats();
 
 }
 
