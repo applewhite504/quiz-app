@@ -3,5 +3,21 @@ button {
     border:2px solid blue;
     border-radius: 15px;
     color: blue;
+    margin-top: 20px;
     padding: 8px 14px;
+}
+
+button:hover {
+    background-color: blue;
+    color: #ffffff;
+}
+
+.inner {
+    /*text-align: center;*/
+}
+
+footer {
+    font-size: 20px;
+    padding-top: 20px;
+    text-align: center;
 }

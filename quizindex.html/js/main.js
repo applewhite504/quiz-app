@@ -27,6 +27,7 @@ function loadStart(){
         <article class="panel">
             <section class="inner">
                 <h1>New Orleans Quiz App</h1>
+                <p>How much do you know about this great city?</p>
                 <button>Begin</button>
             </section>
         </article>`)
@@ -39,6 +40,7 @@ function loadNextQuestion(){
     $('button').html(`Submit`)
 
     let questionHTML = createQuestionHTML()
+    //console.log(questionHTML);
 
     // update inner html in <main>
     $('main').html(`
@@ -46,11 +48,11 @@ function loadNextQuestion(){
             <section class="inner">
                 <h1>${currentQuestionIndex + 1}. ${STORE[currentQuestionIndex].text}</h1>
                 <form id="quiz">
-                    ${questionsHTML}
+                    ${questionHTML}
                     <button type="submit">Submit</button>
                 </form>
             </section>
-            <footer>${currentQuestionIndex + 1} of 10</footer>
+            <footer>${currentQuestionIndex + 1} of 5</footer>
         </article>`)
     
     updateCorrectIncorrect()
@@ -69,12 +71,65 @@ function createQuestionHTML(){
     })
     .join('\n')
 }
-function checkAnswersValid(){}
+
+function checkAnswersValid(){
+    let answerIndex = $('input[name=answer]:checked').val()
+    let answerNotSelected = !answerIndex
+
+    if(answerNotSelected) {
+        alert('You must select an answer, now!!')
+    } else {
+        let answer =
+        STORE[currentQuestionIndex].answers[
+            Number($('input[name=answer]:checked').val())
+        ]
+        updateForm({answer, answerIndex})
+
+        // increment correct / incorrect count
+        answer.correct ? numCorrect++ : numIncorrect++
+        updateCorrectIncorrect()
+    }
+}
 function updateForm(){}
-function updateCorrectIncorrect(){}
-function loadButtonListener(){}
+function updateCorrectIncorrect(){
+    if($('footer.footer').length){
+        $('footer.footer').html(`${numCorrect} correct / ${numIncorrect} incorrect`)
+    } else {
+        $('body').append(
+            `<footer class="footer">${numCorrect} correct / ${numIncorrect} incorrect</footer>`
+        )
+    }
+}
+
+// listens for buttons clicks
+// behavior is based on the currentState changed
+function loadButtonListener(){
+    $('main').on('click', 'button', function(event){
+        event.preventDefault()
+
+        switch(currentState){
+            case STATES.START:
+                loadNextQuestion()
+                break
+            case STATES.QUESTION:
+                checkAnswersValid()
+                break
+            case STATES.CORRECT:
+            case STATES.INCORRECT:
+                currentQuestionIndex++
+                currentQuestionIndex >= STORE.length
+                    ? loadEnd()
+                    : loadNextQuestion()
+                break
+            case STARTS.END:
+                loadStart()
+                break
+        }
+    })
+}
 
 // spin up 
 $(() => {
-loadStart()
+    loadButtonListener()
+    loadStart()
 })
