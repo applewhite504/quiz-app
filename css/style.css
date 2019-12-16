@@ -13,11 +13,16 @@ button:hover {
 }
 
 .inner {
-    /*text-align: center;*/
+    text-align: center;
+    font-size: 48px;
 }
 
 footer {
     font-size: 20px;
     padding-top: 20px;
     text-align: center;
+}
+
+body {
+    background-color: rgb(79, 210, 214);
 }
