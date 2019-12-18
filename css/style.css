@@ -1,7 +1,15 @@
 *{
     box-sizing: border-box;
-    
 }
+    
+    img {
+        position: relative;
+        top: 20px;
+        width: 700px;
+        height: 500px;
+
+    }
+
     button {
     font-size: 25px;
     background: white;
@@ -39,12 +47,21 @@ body {
 h1 {
     font-size: 88%;
     display: block;
+    margin-top: 75px;
 }
 
 .answer {
     font-size: 80%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS';
     text-align: left;
-    padding-left: 60px;   
+    margin-left: 80px;
+    padding-top: 12px; 
+     
+}
+
+.img {
+    margin-bottom: 20px;
+    
+    margin: auto;
 }
 

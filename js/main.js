@@ -26,7 +26,7 @@ function loadStart(){
     $('main').html(`
         <article class="panel">
             <section class="inner">
-            <img src="https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,q_80,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/neworleans/Jackson_Square_New_Orleans0-d5bedffa5056b36_d5bee3f8-5056-b365-ab1ff9665d41e638.jpg" alt="New Orleans Historical location" width="850" height="400">
+            <img src="images/jacksonsq.jpeg">
             
                 <h1>New Orleans Quiz App</h1>
                 <p>How much do you know about this great city?</p>
@@ -35,12 +35,6 @@ function loadStart(){
         </article>`)
 }
 
-//title page image
-//<img src="https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,q_80,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/neworleans/Jackson_Square_New_Orleans0-d5bedffa5056b36_d5bee3f8-5056-b365-ab1ff9665d41e638.jpg" alt="New Orleans Historical location" width="900" height="500"></img>
-//quest 1 (laissez)
-//<img src="https://i0.wp.com/pineapplepaperco.com/wp-content/uploads/2017/02/mardigraspostermockup.jpg?resize=600%2C600&ssl=1mardigraspostermockup.jpg"></img>
-//question 2 big easy
-//<img src="https://imgc.allpostersimages.com/img/print/u-g-Q10X4W20.jpg?w=550&h=550&p=0"></img>
 
 function loadNextQuestion(){
     currentState = STATES.QUESTION
@@ -55,9 +49,10 @@ function loadNextQuestion(){
     $('main').html(`
         <article class="panel">
             <section class="inner">
-            <img src="https://i0.wp.com/pineapplepaperco.com/wp-content/uploads/2017/02/mardigraspostermockup.jpg?resize=600%2C600&ssl=1mardigraspostermockup.jpg">
+        
                 <h1>${currentQuestionIndex + 1}. ${STORE[currentQuestionIndex].text}</h1>
                 <form id="quiz">
+                <div class="img">${STORE[currentQuestionIndex].image}</div>
                     ${questionHTML}
                     <button type="submit">Submit</button>
                 </form>
@@ -83,10 +78,15 @@ function loadEnd(){
         <article class="panel">
             <section class="inner">
             <p>YOU GOT<br /><span class="large">${numCorrect} / ${STORE.length}</span></p>
-			<p>${message}</p>
+            <p>${message}</p>
+            <img src="images/flag.jpeg" width="500" height="200"><br />
+            <br />
+            <br />
+            
             <button>Try Again</button>
-            <br/>
-            <img src="http://chrisknightcreations.com/wp-content/uploads/2017/09/weathered-wood-one-of-a-kind-new-orleans-flag-wooden-vintage-art-distressed-weathered-recycled-new-orleans-flag-art-louisiana-white-59b730fe3.jpg" width="900" height="500">
+        
+            
+    
             </section>
         </article>
     `)
