@@ -3,7 +3,7 @@ const STORE = [
         text: "One of the most popular expressions in this city is, “Laissez les bon temps rouler!” Which means:",
         answers: [
             {text: 'Who cares?', correct: false},
-            {text: 'Let\'s have some fun', correct: false},
+            {text: 'Let\'s have some fun!', correct: false},
             {text: 'Roll the dice!', correct: false},
             {text: 'Let the good times roll!', correct: true},
         ]
@@ -27,7 +27,7 @@ const STORE = [
         ]
     },
     {
-        text: "New Orleans has two major league professional sports teams: The Saints, of the National Football League, and the _____________, of the National Basketball Association.",
+        text: "New Orleans has two major league professional sports teams: the Saints, of the National Football League, and the _____________, of the National Basketball Association.",
         answers: [
             {text: 'Jesters', correct: false},
             {text: 'Hornets', correct: false},
